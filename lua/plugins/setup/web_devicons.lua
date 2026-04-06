@@ -1,1 +1,1 @@
-pcall(vim.cmd.packadd, 'nvim-web-devicons')
+pcall(vim.cmd.packadd, "nvim-web-devicons")

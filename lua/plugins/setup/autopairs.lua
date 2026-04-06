@@ -1,10 +1,13 @@
-local ok, autopairs = pcall(require, 'nvim-autopairs')
-if not ok then return end
+local ok, autopairs = pcall(require, "nvim-autopairs")
+if not ok then
+  return
+end
 
-autopairs.setup {
+autopairs.setup({
   check_ts = true,
   ts_config = {
-    lua = { 'string' },
-    javascript = { 'template_string' },
+    lua = { "string" },
+    javascript = { "template_string" },
   },
-}
+})
+

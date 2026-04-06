@@ -1,9 +1,9 @@
-pcall(vim.cmd.packadd, 'nui.nvim')
-pcall(vim.cmd.packadd, 'neo-tree.nvim')
+pcall(vim.cmd.packadd, "nui.nvim")
+pcall(vim.cmd.packadd, "neo-tree.nvim")
 
-require('neo-tree').setup({
+require("neo-tree").setup({
   close_if_last_window = true,
-  popup_border_style = 'rounded',
+  popup_border_style = "rounded",
   enable_git_status = true,
   enable_diagnostics = true,
 
@@ -12,8 +12,8 @@ require('neo-tree').setup({
       hide_dotfiles = false,
       hide_gitignored = true,
       hide_by_name = {
-        'node_modules',
-        'vendor',
+        "node_modules",
+        "vendor",
       },
     },
     follow_current_file = {
@@ -22,7 +22,7 @@ require('neo-tree').setup({
   },
 
   window = {
-    position = 'left',
+    position = "left",
     width = 32,
   },
 })

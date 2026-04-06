@@ -1,5 +1,5 @@
-require('catppuccin').setup({
-  flavour = 'macchiato',
+require("catppuccin").setup({
+  flavour = "macchiato",
   integrations = {
     gitsigns = true,
     telescope = true,
@@ -10,4 +10,4 @@ require('catppuccin').setup({
   },
 })
 
-vim.cmd.colorscheme('catppuccin-macchiato')
+vim.cmd.colorscheme("catppuccin-macchiato")
