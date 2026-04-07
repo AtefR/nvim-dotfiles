@@ -26,6 +26,9 @@ local specs = {
   { src = gh("nvim-neotest/nvim-nio") },
   { src = gh("adalessa/laravel.nvim") },
   { src = gh("windwp/nvim-autopairs") },
+  { src = gh("karb94/neoscroll.nvim") },
+  { src = gh("andymass/vim-matchup") },
+  { src = gh("abecodes/tabout.nvim") },
 }
 
 if vim.fn.executable("make") == 1 then
