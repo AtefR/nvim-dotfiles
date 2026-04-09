@@ -24,14 +24,14 @@ local specs = {
   { src = gh("nvim-mini/mini.nvim") },
   { src = gh("nvim-treesitter/nvim-treesitter"), version = "main" },
   { src = gh("nvim-neotest/nvim-nio") },
-  { src = gh("adalessa/laravel.nvim") },
   { src = gh("windwp/nvim-autopairs") },
   { src = gh("karb94/neoscroll.nvim") },
   { src = gh("andymass/vim-matchup") },
-{ src = gh("abecodes/tabout.nvim") },
-	{ src = gh("nvim-lualine/lualine.nvim") },
-	{ src = gh("nvim-treesitter/nvim-treesitter-textobjects") },
-	{ src = gh("ckolkey/ts-node-action") },
+  { src = gh("abecodes/tabout.nvim") },
+  { src = gh("nvim-lualine/lualine.nvim") },
+  { src = gh("nvim-treesitter/nvim-treesitter-textobjects") },
+  { src = gh("ckolkey/ts-node-action") },
+    { src = gh("adalessa/laravel.nvim") },
 }
 
 if vim.fn.executable("make") == 1 then
