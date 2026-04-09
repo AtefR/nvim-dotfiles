@@ -30,6 +30,10 @@
       "rev": "ef06a69137ed09a72addc0c6f967aaea7d891a63",
       "src": "https://github.com/adalessa/laravel.nvim"
     },
+    "lualine.nvim": {
+      "rev": "8811f3f3f4dc09d740c67e9ce399e7a541e2e5b2",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "25f609e7fca78af7cede4f9fa3af8a94b1c4950b",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
@@ -80,6 +84,10 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
+    "nvim-treesitter-textobjects": {
+      "rev": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+    },
     "nvim-web-devicons": {
       "rev": "40e9d5a6cc3db11b309e39593fc7ac03bb844e38",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
@@ -107,6 +115,10 @@
     "todo-comments.nvim": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
       "src": "https://github.com/folke/todo-comments.nvim"
+    },
+    "ts-node-action": {
+      "rev": "dda34b5b440a4f1137f8e815756a19cf655b516f",
+      "src": "https://github.com/ckolkey/ts-node-action"
     },
     "vim-matchup": {
       "rev": "0fb1e6b7cea34e931a2af50b8ad565c5c4fd8f4d",

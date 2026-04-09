@@ -3,6 +3,18 @@ local builtin = require("telescope.builtin")
 local themes = require("telescope.themes")
 
 telescope.setup({
+  defaults = {
+    mappings = {
+      n = {
+        ["<Esc>"] = "close",
+        ["q"] = "close",
+      },
+      i = {
+        ["<Esc>"] = "close",
+        ["<C-c>"] = "close",
+      },
+    },
+  },
   extensions = {
     ["ui-select"] = { themes.get_dropdown() },
   },

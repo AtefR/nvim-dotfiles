@@ -22,6 +22,8 @@ vim.o.inccommand = "split"
 vim.o.cursorline = true
 vim.o.scrolloff = 10
 vim.o.confirm = true
+vim.o.cmdheight = 0
+vim.opt.laststatus = 3
 
 -- vim.o.autocomplete = true
 -- vim.o.pumborder = 'rounded'

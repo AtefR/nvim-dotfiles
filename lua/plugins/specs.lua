@@ -28,7 +28,10 @@ local specs = {
   { src = gh("windwp/nvim-autopairs") },
   { src = gh("karb94/neoscroll.nvim") },
   { src = gh("andymass/vim-matchup") },
-  { src = gh("abecodes/tabout.nvim") },
+{ src = gh("abecodes/tabout.nvim") },
+	{ src = gh("nvim-lualine/lualine.nvim") },
+	{ src = gh("nvim-treesitter/nvim-treesitter-textobjects") },
+	{ src = gh("ckolkey/ts-node-action") },
 }
 
 if vim.fn.executable("make") == 1 then
