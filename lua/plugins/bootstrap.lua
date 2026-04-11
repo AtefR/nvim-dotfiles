@@ -2,6 +2,7 @@ require("plugins.hooks")
 vim.pack.add(require("plugins.specs"))
 
 require("plugins.setup.colorscheme")
+require("plugins.setup.alpha")
 require("plugins.setup.guess_indent")
 require("plugins.setup.gitsigns")
 require("plugins.setup.which_key")

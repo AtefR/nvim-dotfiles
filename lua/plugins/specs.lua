@@ -9,6 +9,7 @@ local specs = {
   { src = gh("nvim-lua/plenary.nvim") },
   { src = gh("MunifTanjim/nui.nvim") },
   { src = gh("nvim-neo-tree/neo-tree.nvim"), version = vim.version.range("3") },
+  { src = gh("goolord/alpha-nvim") },
   { src = gh("nvim-telescope/telescope.nvim") },
   { src = gh("nvim-telescope/telescope-ui-select.nvim") },
   { src = gh("neovim/nvim-lspconfig") },

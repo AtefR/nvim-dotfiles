@@ -13,6 +13,7 @@ vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
 vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Explorer toggle" })
+vim.keymap.set("n", "<leader>a", "<cmd>Alpha<cr>", { desc = "Alpha dashboard" })
 vim.keymap.set("n", "<leader>o", "<cmd>Neotree focus<cr>", { desc = "Explorer focus" })
 vim.keymap.set("n", "<leader>be", "<cmd>Neotree buffers toggle right<cr>", { desc = "Buffer explorer" })
 vim.keymap.set("n", "<leader>ge", "<cmd>Neotree git_status toggle right<cr>", { desc = "Git explorer" })

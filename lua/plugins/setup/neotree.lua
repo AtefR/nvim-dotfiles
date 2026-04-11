@@ -2,12 +2,13 @@ pcall(vim.cmd.packadd, "nui.nvim")
 pcall(vim.cmd.packadd, "neo-tree.nvim")
 
 require("neo-tree").setup({
-  close_if_last_window = true,
+  close_if_last_window = false,
   popup_border_style = "rounded",
   enable_git_status = true,
   enable_diagnostics = true,
 
   filesystem = {
+    hijack_netrw_behavior = "disabled",
     filtered_items = {
       hide_dotfiles = false,
       hide_gitignored = true,

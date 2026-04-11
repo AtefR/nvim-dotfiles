@@ -1,10 +1,10 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- Set this to false if you don't use a Nerd Font.
 vim.g.have_nerd_font = true
-
-require('vim._core.ui2').enable()
 
 require('config.options')
 require('config.diagnostics')
