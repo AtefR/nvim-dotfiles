@@ -23,12 +23,12 @@ vim.api.nvim_create_autocmd("VimEnter", {
   once = true,
   callback = function()
     vim.schedule(function()
-      require("plugins.setup.harpoon")
       require("plugins.setup.todo_comments")
       require("plugins.setup.mini")
       require("plugins.setup.lualine")
       require("plugins.setup.autopairs")
       require("plugins.setup.neoscroll")
+      require("plugins.setup.harpoon")
       require("plugins.setup.tabout")
     end)
   end,
