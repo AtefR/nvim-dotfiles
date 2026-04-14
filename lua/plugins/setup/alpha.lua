@@ -21,18 +21,18 @@ dashboard.section.buttons.val = {
   dashboard.button(
     "SPC s f",
     "Find file",
-    "<cmd>lua require('telescope.builtin').find_files()<CR>"
+    "<cmd>lua require('plugins.setup.telescope').ensure(); require('telescope.builtin').find_files()<CR>"
   ),
   dashboard.button(
     "SPC s .",
     "Recent files",
-    "<cmd>lua require('telescope.builtin').oldfiles()<CR>"
+    "<cmd>lua require('plugins.setup.telescope').ensure(); require('telescope.builtin').oldfiles()<CR>"
   ),
   dashboard.button("SPC e", "Explorer", "<cmd>Neotree toggle<CR>"),
   dashboard.button(
     "SPC s n",
     "Config files",
-    "<cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.stdpath('config') })<CR>"
+    "<cmd>lua require('plugins.setup.telescope').ensure(); require('telescope.builtin').find_files({ cwd = vim.fn.stdpath('config') })<CR>"
   ),
   dashboard.button("q", "Quit", "<cmd>qa<CR>"),
 }
