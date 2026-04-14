@@ -1,53 +1,67 @@
-require('nvim-treesitter-textobjects').setup {
-  move = {
-    enable = true,
-    set_jumps = true,
-  },
-  select = {
-    enable = true,
-    lookahead = true,
-  },
-}
+local configured = false
 
-local ts_textobjects = require('nvim-treesitter-textobjects.select')
+local function ensure_textobjects()
+  if configured then
+    return
+  end
 
-vim.keymap.set({ 'x', 'o' }, 'af', function()
-  ts_textobjects.select_textobject('@function.outer', 'textobjects')
-end, { desc = 'Select around function' })
+  require("plugins.setup.treesitter").ensure()
+  pcall(vim.cmd.packadd, "nvim-treesitter-textobjects")
 
-vim.keymap.set({ 'x', 'o' }, 'if', function()
-  ts_textobjects.select_textobject('@function.inner', 'textobjects')
-end, { desc = 'Select inner function' })
+  require("nvim-treesitter-textobjects").setup({
+    move = {
+      enable = true,
+      set_jumps = true,
+    },
+    select = {
+      enable = true,
+      lookahead = true,
+    },
+  })
 
-vim.keymap.set({ 'x', 'o' }, 'ac', function()
-  ts_textobjects.select_textobject('@class.outer', 'textobjects')
-end, { desc = 'Select around class' })
-
-vim.keymap.set({ 'x', 'o' }, 'ic', function()
-  ts_textobjects.select_textobject('@class.inner', 'textobjects')
-end, { desc = 'Select inner class' })
-
-local ts_move = require('nvim-treesitter-textobjects.move')
-
-vim.keymap.set({ 'n', 'x', 'o' }, ']f', function()
-  ts_move.goto_next_start('@function.outer', 'textobjects')
-end, { desc = 'Jump to next function' })
-
-vim.keymap.set({ 'n', 'x', 'o' }, '[f', function()
-  ts_move.goto_previous_start('@function.outer', 'textobjects')
-end, { desc = 'Jump to previous function' })
-
-vim.keymap.set({ 'n', 'x', 'o' }, ']c', function()
-  ts_move.goto_next_start('@class.outer', 'textobjects')
-end, { desc = 'Jump to next class' })
-
-vim.keymap.set({ 'n', 'x', 'o' }, '[c', function()
-  ts_move.goto_previous_start('@class.outer', 'textobjects')
-end, { desc = 'Jump to previous class' })
-
-local ok, ts_node_action = pcall(require, 'ts-node-action')
-if ok then
-  vim.keymap.set({ 'n', 'x' }, '<leader>ta', function()
-    ts_node_action.node_action()
-  end, { desc = 'Treesitter: Trigger node action' })
+  configured = true
 end
+
+local function with_select(capture)
+  return function()
+    ensure_textobjects()
+    require("nvim-treesitter-textobjects.select").select_textobject(capture, "textobjects")
+  end
+end
+
+local function with_move(method, capture)
+  return function()
+    ensure_textobjects()
+    require("nvim-treesitter-textobjects.move")[method](capture, "textobjects")
+  end
+end
+
+vim.keymap.set({ "x", "o" }, "af", with_select("@function.outer"), { desc = "Select around function" })
+vim.keymap.set({ "x", "o" }, "if", with_select("@function.inner"), { desc = "Select inner function" })
+vim.keymap.set({ "x", "o" }, "ac", with_select("@class.outer"), { desc = "Select around class" })
+vim.keymap.set({ "x", "o" }, "ic", with_select("@class.inner"), { desc = "Select inner class" })
+
+vim.keymap.set({ "n", "x", "o" }, "]f", with_move("goto_next_start", "@function.outer"), { desc = "Jump to next function" })
+vim.keymap.set({ "n", "x", "o" }, "[f", with_move("goto_previous_start", "@function.outer"), { desc = "Jump to previous function" })
+vim.keymap.set({ "n", "x", "o" }, "]c", with_move("goto_next_start", "@class.outer"), { desc = "Jump to next class" })
+vim.keymap.set({ "n", "x", "o" }, "[c", with_move("goto_previous_start", "@class.outer"), { desc = "Jump to previous class" })
+
+vim.keymap.set({ "n", "x" }, "<leader>ta", function()
+  ensure_textobjects()
+  local ok, ts_node_action = pcall(require, "ts-node-action")
+  if ok then
+    ts_node_action.node_action()
+  end
+end, { desc = "Treesitter: Trigger node action" })
+
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("user-treesitter-textobjects-lazy", { clear = true }),
+  once = true,
+  callback = function()
+    ensure_textobjects()
+  end,
+})
+
+return {
+  ensure = ensure_textobjects,
+}

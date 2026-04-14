@@ -1,9 +1,9 @@
 require("luasnip").setup({})
 
 require("blink.cmp").setup({
-  keymap = {
-    preset = "enter",
-  },
+  -- keymap = {
+  --   preset = "enter",
+  -- },
   appearance = {
     nerd_font_variant = "mono",
   },

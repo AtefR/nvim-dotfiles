@@ -1,29 +1,43 @@
-pcall(vim.cmd.packadd, "nui.nvim")
-pcall(vim.cmd.packadd, "neo-tree.nvim")
+local configured = false
 
-require("neo-tree").setup({
-  close_if_last_window = false,
-  popup_border_style = "rounded",
-  enable_git_status = true,
-  enable_diagnostics = true,
+local function ensure_neotree()
+  if configured then
+    return
+  end
 
-  filesystem = {
-    hijack_netrw_behavior = "disabled",
-    filtered_items = {
-      hide_dotfiles = false,
-      hide_gitignored = true,
-      hide_by_name = {
-        "node_modules",
-        "vendor",
+  pcall(vim.cmd.packadd, "nui.nvim")
+  pcall(vim.cmd.packadd, "neo-tree.nvim")
+
+  require("neo-tree").setup({
+    close_if_last_window = false,
+    popup_border_style = "rounded",
+    enable_git_status = true,
+    enable_diagnostics = true,
+
+    filesystem = {
+      hijack_netrw_behavior = "disabled",
+      filtered_items = {
+        hide_dotfiles = false,
+        hide_gitignored = true,
+        hide_by_name = {
+          "node_modules",
+          "vendor",
+        },
+      },
+      follow_current_file = {
+        enabled = true,
       },
     },
-    follow_current_file = {
-      enabled = true,
-    },
-  },
 
-  window = {
-    position = "left",
-    width = 32,
-  },
-})
+    window = {
+      position = "left",
+      width = 32,
+    },
+  })
+
+  configured = true
+end
+
+return {
+  ensure = ensure_neotree,
+}
