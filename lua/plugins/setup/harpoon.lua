@@ -84,10 +84,11 @@ local function setup_harpoon()
     harpoon:list():select(4)
   end, { desc = "Select harpoon 4" })
 
-  vim.keymap.set("n", "<leader>ac", function()
+  vim.keymap.set("n", "<leader>hc", function()
     local list = harpoon:list()
     list:clear()
   end, { desc = "Clear all harpoon marks" })
 end
 
 setup_harpoon()
+
