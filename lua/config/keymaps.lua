@@ -7,10 +7,20 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+vim.keymap.set("n", "<Left>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "<Right>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<Down>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<Up>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
 vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
 vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
+
+vim.keymap.set("n", "<S-Left>", "<C-w>H", { desc = "Move window to the left" })
+vim.keymap.set("n", "<S-Right>", "<C-w>L", { desc = "Move window to the right" })
+vim.keymap.set("n", "<S-Down>", "<C-w>J", { desc = "Move window to the lower" })
+vim.keymap.set("n", "<S-Up>", "<C-w>K", { desc = "Move window to the upper" })
 
 vim.keymap.set("n", "<leader>e", function()
   vim.cmd("Neotree toggle")

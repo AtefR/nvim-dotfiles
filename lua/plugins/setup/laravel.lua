@@ -1,4 +1,15 @@
-local laravel = require("laravel")
+pcall(vim.cmd.packadd, "nvim-nio")
+pcall(vim.cmd.packadd, "laravel.nvim")
+
+local ok_nio = pcall(require, "nio")
+if not ok_nio then
+  return
+end
+
+local ok, laravel = pcall(require, "laravel")
+if not ok then
+  return
+end
 
 laravel.setup({
   features = {
@@ -10,8 +21,8 @@ laravel.setup({
 
 vim.g.Laravel = laravel
 
-local function map(lhs, fn, desc)
-  vim.keymap.set("n", lhs, fn, { desc = desc })
+local function map(lhs, fn, desc, opts)
+  vim.keymap.set("n", lhs, fn, vim.tbl_extend("keep", opts or {}, { desc = desc }))
 end
 
 map("<leader>ll", function() Laravel.pickers.laravel() end, "Laravel: Open Laravel Picker")
