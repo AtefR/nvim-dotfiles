@@ -28,7 +28,7 @@ dashboard.section.buttons.val = {
     "Recent files",
     "<cmd>lua require('plugins.setup.telescope').ensure(); require('telescope.builtin').oldfiles()<CR>"
   ),
-  dashboard.button("SPC e", "Explorer", "<cmd>Neotree toggle<CR>"),
+  dashboard.button("SPC e", "Explorer", "<cmd>lua require('oil').toggle_float()<CR>"),
   dashboard.button(
     "SPC s n",
     "Config files",

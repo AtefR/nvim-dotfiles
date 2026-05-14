@@ -24,6 +24,13 @@ vim.o.scrolloff = 10
 vim.o.confirm = true
 vim.o.cmdheight = 0
 vim.opt.laststatus = 3
+vim.o.showtabline = 1
+
+vim.o.foldcolumn = "1"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldinner: ,foldclose:"
 
 -- vim.o.autocomplete = true
 -- vim.o.pumborder = 'rounded'

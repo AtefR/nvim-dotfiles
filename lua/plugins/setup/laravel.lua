@@ -17,6 +17,11 @@ laravel.setup({
       provider = "telescope",
     },
   },
+  extensions = {
+    diagnostic = { enable = false },
+    model_info = { enable = false },
+    override = { enable = false },
+  },
 })
 
 vim.g.Laravel = laravel
@@ -38,12 +43,12 @@ map("<c-g>", function() Laravel.commands.run("view:finder") end, "Laravel: Open 
 map("<leader>lp", function() Laravel.commands.run("command_center") end, "Laravel: Open Command Center")
 
 map("gf", function()
-  local ok, res = pcall(function()
+  local gf_ok, res = pcall(function()
     if Laravel.app("gf").cursorOnResource() then
       return "<cmd>lua Laravel.commands.run('gf')<cr>"
     end
   end)
-  if not ok or not res then
+  if not gf_ok or not res then
     return "gf"
   end
   return res

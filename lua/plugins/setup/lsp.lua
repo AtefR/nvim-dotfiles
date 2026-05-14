@@ -16,6 +16,8 @@ local servers = {
       },
     },
   },
+  vtsls = {},
+  vue_ls = {},
 }
 
 require("mason").setup({})
@@ -82,6 +84,8 @@ local ensure_installed = vim.tbl_keys(servers)
 vim.list_extend(ensure_installed, {
   "stylua",
   "intelephense",
+  "vtsls",
+  "vue-language-server",
   "pint",
   "blade-formatter",
   "prettier",
